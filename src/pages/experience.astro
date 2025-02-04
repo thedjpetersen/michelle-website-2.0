@@ -10,28 +10,32 @@ const experiences = [
     company: "Unison",
     period: "2022 - 2024",
     description: "I lead a small team of hardware engineers to build a VR headset that solves user retention by prioritizing comfort and portability. I did all things hardware related",
-    skills: ["VR Hardware", "Team Leadership", "Product Design", "Hardware Engineering"]
+    skills: ["VR Hardware", "Team Leadership", "Product Design", "Hardware Engineering"],
+    logo: '/logos/unison.svg'
   },
   {
     role: "Hardware Systems Engineer",
     company: "Niantic",
     period: "2022 - 2022",
     description: "Core MechE responsible for developing an AR headset to be used internally and externally by software and game developers.",
-    skills: ["AR Hardware", "Mechanical Engineering", "Systems Design"]
+    skills: ["AR Hardware", "Mechanical Engineering", "Systems Design"],
+    logo: '/logos/niantic.svg'
   },
   {
     role: "Product Design Engineer",
     company: "Meta",
     period: "2020 - 2022",
     description: "Member of the VR headset development team, launched Quest 2 and Quest 3.",
-    skills: ["VR Hardware", "Product Development", "Mass Production"]
+    skills: ["VR Hardware", "Product Development", "Mass Production"],
+    logo: '/logos/meta.svg'
   },
   {
     role: "Product Design Engineer",
     company: "Shure",
     period: "2015 - 2020",
     description: "Responsible for implementing the constraints of industrial design concepts and electrical intent, creating a functional and manufacturable product from concept through mass production.",
-    skills: ["Industrial Design", "Manufacturing", "Product Development", "DFM"]
+    skills: ["Industrial Design", "Manufacturing", "Product Development", "DFM"],
+    logo: '/logos/shure.svg'
   }
 ];
 ---
@@ -44,57 +48,13 @@ const experiences = [
     <!-- Content -->
     <div class="relative">
       <header class="mb-12">
-        <h1 class="text-4xl font-semibold bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text text-transparent dark:from-slate-200 dark:to-slate-300 tracking-tight">
+        <h1 class="text-4xl font-semibold bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text dark:from-slate-200 dark:to-slate-300 tracking-tight">
           Professional Experience
         </h1>
         <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl">
           A decade of expertise in VR/AR hardware and product design engineering, specializing in bringing innovative concepts to mass production.
         </p>
 
-        <div class="relative mt-8">
-          <div class="absolute inset-0 bg-gradient-to-r from-slate-50 via-transparent to-slate-50 dark:from-[#2C3D4F] dark:to-[#2C3D4F] pointer-events-none z-10"></div>
-          <div class="flex flex-wrap items-center gap-8 md:gap-12 py-6">
-            <div class="group relative flex flex-col items-center">
-              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-                <img 
-                  src="/logos/meta.svg" 
-                  alt="Meta" 
-                  class="w-full h-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300" 
-                />
-              </div>
-            </div>
-
-            <div class="group relative flex flex-col items-center">
-              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-                <img 
-                  src="/logos/niantic.svg" 
-                  alt="Niantic" 
-                  class="w-full h-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300" 
-                />
-              </div>
-            </div>
-
-            <div class="group relative flex flex-col items-center">
-              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-                <img 
-                  src="/logos/shure.svg" 
-                  alt="Shure" 
-                  class="w-full h-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300" 
-                />
-              </div>
-            </div>
-
-            <div class="group relative flex flex-col items-center">
-              <div class="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center">
-                <img 
-                  src="/logos/unison.svg" 
-                  alt="Unison" 
-                  class="w-full h-full object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-300" 
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </header>
 
       <div class="space-y-6">
@@ -111,6 +71,7 @@ const experiences = [
                   <div class="flex items-center space-x-2 text-slate-600 dark:text-slate-300">
                     <Building2 className="w-4 h-4" />
                     <span class="font-medium">{exp.company}</span>
+                    <img src={exp.logo} alt={exp.company} class="h-4" />
                   </div>
                 </div>
                 <div class="flex items-center mt-2 md:mt-0 text-slate-500 dark:text-slate-400">
