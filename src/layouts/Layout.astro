@@ -51,32 +51,6 @@ const navigation = [
         100% { opacity: 0.5; }
       }
 
-      #themeToggle::before {
-        content: '';
-        position: absolute;
-        inset: -1px;
-        background: linear-gradient(90deg, 
-          rgba(var(--navy-500-rgb), 0.05),
-          rgba(var(--navy-500-rgb), 0.1),
-          rgba(var(--navy-500-rgb), 0.05)
-        );
-        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        padding: 1px;
-        border-radius: 1rem;
-        animation: pulseGlow 4s ease infinite;
-      }
-
-      .dark #themeToggle::before {
-        background: linear-gradient(90deg, 
-          rgba(255, 255, 255, 0.03),
-          rgba(255, 255, 255, 0.06),
-          rgba(255, 255, 255, 0.03)
-        );
-      }
-
       .gradient-animate {
         background: linear-gradient(
           120deg,
