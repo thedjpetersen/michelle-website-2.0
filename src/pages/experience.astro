@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Building2, ChevronRight } from 'lucide-react';
+import { Calendar, Building2, ChevronRight, Briefcase } from 'lucide-react';
 
 const experiences = [
   {
@@ -41,58 +41,71 @@ const experiences = [
 ---
 
 <Layout title="Experience - Michelle Sentevski">
-  <div class="relative">
-    <!-- Subtle gradient background with Stripe-inspired design -->
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-slate-100/50 dark:from-[#2C3D4F]/80 dark:to-[#2C3D4F]/95" />
+  <div class="relative min-h-screen">
+    <!-- Decorative background elements -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-navy-500/5 via-transparent to-transparent dark:from-slate-400/5"></div>
+    <div class="absolute top-20 right-20 w-72 h-72 bg-navy-500/5 dark:bg-slate-400/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-20 w-96 h-96 bg-navy-500/5 dark:bg-slate-400/5 rounded-full blur-3xl"></div>
     
     <!-- Content -->
-    <div class="relative">
-      <header class="mb-12">
-        <h1 class="text-4xl font-semibold bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text dark:from-slate-200 dark:to-slate-300 tracking-tight">
-          Professional Experience
+    <div class="relative max-w-5xl mx-auto px-6 py-16 sm:py-24">
+      <header class="mb-16 md:mb-24">
+        <div class="inline-flex items-center space-x-2 text-sm text-navy-500/70 dark:text-slate-400/70 mb-4">
+          <Briefcase className="w-4 h-4" />
+          <span>Work Experience</span>
+        </div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text dark:from-slate-200 dark:to-slate-300 tracking-tight leading-tight max-w-3xl">
+          A decade of building the future
         </h1>
-        <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl">
-          A decade of expertise in VR/AR hardware and product design engineering, specializing in bringing innovative concepts to mass production.
+        <p class="mt-6 text-lg text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
+          Specializing in VR/AR hardware and product design engineering, I've helped shape the next generation of immersive technologies at industry-leading companies.
         </p>
-
       </header>
 
-      <div class="space-y-6">
-        {experiences.map((exp) => (
-          <Card className="group relative overflow-hidden border-0 bg-white/70 dark:bg-[#2C3D4F]/70 backdrop-blur-xl hover:bg-white/80 dark:hover:bg-[#2C3D4F]/80 transition-all duration-300">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-500/5 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            
-            <div class="relative p-6 md:p-8">
-              <div class="flex flex-col md:flex-row justify-between mb-4">
-                <div class="space-y-2">
-                  <h2 class="text-2xl font-semibold text-slate-900 dark:text-slate-200 group-hover:text-navy-500 dark:group-hover:text-white transition-colors">
-                    {exp.role}
-                  </h2>
-                  <div class="flex items-center space-x-2 text-slate-600 dark:text-slate-300">
-                    <Building2 className="w-4 h-4" />
-                    <span class="font-medium">{exp.company}</span>
-                    <img src={exp.logo} alt={exp.company} class="h-4" />
+      <div class="divide-y divide-slate-200/60 dark:divide-slate-700/60">
+        {experiences.map((exp, index) => (
+          <div class="group py-12 first:pt-0 last:pb-0">            
+            <div class="relative">
+              <div class="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
+                <div class="space-y-4">
+                  <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800/50 p-2.5 flex items-center justify-center group-hover:bg-slate-50 dark:group-hover:bg-slate-800/80 transition-colors duration-500">
+                      <img src={exp.logo} alt={exp.company} class="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <div>
+                      <h2 class="text-2xl font-semibold text-slate-900 dark:text-slate-200 group-hover:text-navy-500 dark:group-hover:text-white transition-colors">
+                        {exp.role}
+                      </h2>
+                      <div class="flex items-center mt-1 text-slate-600 dark:text-slate-300">
+                        <Building2 className="w-4 h-4 mr-2" />
+                        <span class="font-medium">{exp.company}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="flex items-center mt-2 md:mt-0 text-slate-500 dark:text-slate-400">
+                <div class="flex items-center text-slate-500 dark:text-slate-400">
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span>{exp.period}</span>
+                  <span class="font-medium">{exp.period}</span>
                 </div>
               </div>
 
-              <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-6">
+              <p class="text-slate-600 dark:text-slate-300 leading-relaxed mb-8 max-w-3xl">
                 {exp.description}
               </p>
 
               <div class="flex flex-wrap gap-2">
                 {exp.skills.map((skill) => (
-                  <Badge variant="secondary" className="bg-slate-100 dark:bg-slate-700/30 text-slate-700 dark:text-slate-200 hover:bg-navy-50 dark:hover:bg-slate-700/50 transition-colors">
+                  <Badge variant="secondary" className="bg-slate-100/80 dark:bg-slate-800/50 text-slate-700 dark:text-slate-200 hover:bg-navy-50 dark:hover:bg-slate-800/80 transition-all duration-300 hover:scale-105">
                     {skill}
                   </Badge>
                 ))}
               </div>
+
+              <div class="absolute top-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <ChevronRight className="w-5 h-5 text-navy-500 dark:text-slate-400" />
+              </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </div>
@@ -100,21 +113,30 @@ const experiences = [
 </Layout>
 
 <style>
-  /* Stripe-inspired card hover effect */
-  .card {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Smooth animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-  
-  .card:hover {
-    transform: translateY(-2px);
-  }
-  
-  /* Smooth badge transitions */
+
+  /* Enhanced hover effects */
   .badge {
-    transition: all 0.2s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
   .badge:hover {
     transform: scale(1.05);
+  }
+
+  /* Gradient text animation */
+  h1 {
+    background-size: 200% auto;
+    animation: shine 8s linear infinite;
+  }
+
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
   }
 </style>
