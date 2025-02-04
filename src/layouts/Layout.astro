@@ -1,6 +1,6 @@
 ---
 import '@/styles/globals.css';
-import { Sun, Moon, Menu } from 'lucide-react';
+import { Sun, Moon, Menu, Linkedin, Mail } from 'lucide-react';
 
 interface Props {
   title: string;
@@ -128,30 +128,48 @@ const navigation = [
         border: 0px solid var(--base-text-color);
         font-size: 14px;
       }
+
+      /* Smooth animations */
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      nav {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      /* Enhanced hover effects */
+      .nav-link {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .nav-link:hover {
+        transform: translateX(2px);
+      }
     </style>
   </head>
   <body class="bg-slate-50/50 dark:bg-[#2C3D4F] antialiased gradient-animate">
     <!-- Mobile Header -->
     <header class="fixed top-0 left-0 right-0 backdrop-blur-xl bg-white/70 dark:bg-[#2C3D4F]/70 border-b border-slate-200/50 dark:border-slate-700/50 flex items-center justify-between px-6 h-16 md:hidden z-40">
       <div class="flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white/90 dark:ring-slate-700/90 shadow-lg shadow-navy-500/10 dark:shadow-navy-500/5">
+        <div class="w-8 h-8 rounded-full overflow-hidden">
           <img
             src="/michelle.png"
             alt="Michelle Sentevski"
             class="w-full h-full object-cover"
           />
         </div>
-        <h1 class="text-[15px] tracking-tight font-medium bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text text-transparent dark:from-slate-200 dark:to-slate-300 animate-[subtleFloat_3s_ease-in-out_infinite]">
+        <h1 class="text-[15px] tracking-tight font-medium text-slate-600 dark:text-slate-200">
           Michelle Sentevski
         </h1>
       </div>
       <button
         id="menuButton"
-        class="p-2.5 -mr-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100/50 dark:hover:bg-slate-700/50 transition-colors relative overflow-hidden group"
+        class="p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100/50 dark:hover:bg-slate-700/50 transition-colors"
         aria-label="Toggle Menu"
       >
-        <div class="absolute inset-0 bg-navy-500/5 dark:bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"></div>
-        <Menu className="w-5 h-5 relative z-10" />
+        <Menu className="w-5 h-5" />
       </button>
     </header>
 
@@ -159,64 +177,72 @@ const navigation = [
       <!-- Navigation -->
       <nav 
         id="sidebar"
-        class="fixed top-0 left-0 w-[280px] h-full bg-white/70 dark:bg-[#2C3D4F]/70 backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 p-8 transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-out z-40 shadow-2xl shadow-slate-900/10 dark:shadow-slate-900/20"
+        class="fixed top-0 left-0 w-[280px] h-full bg-slate-100 dark:bg-[#162030] border-r border-slate-200/50 dark:border-slate-700/50 transform -translate-x-full md:translate-x-0 transition-all duration-300 ease-out z-40"
       >
-        <div class="mb-8">
-          <img
-            src="/michelle.png"
-            alt="Michelle Sentevski"
-            class="w-32 h-32 rounded-full mx-auto mb-8 object-cover ring-2 ring-white/90 dark:ring-slate-700/90 shadow-lg"
-          />
-          <h1 class="text-h3 text-navy-500 dark:text-slate-200 mb-2">Michelle Sentevski</h1>
-          <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-            Mechanical engineer specializing in product design and development
-          </p>
-        </div>
-
-        <ul class="space-y-1">
-          {navigation.map(({ name, href }) => (
-            <li>
-              <a
-                href={href}
-                class:list={[
-                  "block px-4 py-2 rounded-lg text-body transition-colors",
-                  Astro.url.pathname === href
-                    ? "bg-navy-50 dark:bg-slate-700/50 text-navy-500 dark:text-white font-medium"
-                    : "text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/30 hover:text-navy-500 dark:hover:text-white"
-                ]}
-              >
-                {name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <!-- Theme Switcher -->
-        <button
-          id="themeToggle"
-          class="absolute bottom-8 left-8 right-8 w-[calc(100%-4rem)] h-16 rounded-2xl bg-gradient-to-r from-slate-50/80 to-white dark:from-slate-800/80 dark:to-slate-700/80 backdrop-blur-xl shadow-sm hover:shadow-lg transition-all duration-500 group overflow-hidden"
-          aria-label="Toggle theme"
-        >
-          <div class="absolute inset-0.5 rounded-xl bg-gradient-to-r from-slate-50 to-white dark:from-slate-800 dark:to-slate-700 opacity-50"></div>
-          <div class="absolute inset-0 transition-opacity duration-500">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.9),transparent_50%)] dark:bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.5),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          </div>
-          
-          <div class="relative flex items-center justify-center w-full h-full">
-            <div class="relative w-24 h-8">
-              <div class="absolute inset-0 flex items-center justify-center transform transition-all duration-500 dark:opacity-0 dark:translate-y-2">
-                <Sun className="w-6 h-6 text-amber-500/90 transform transition-transform duration-500 group-hover:rotate-180" />
-                <span class="ml-2 text-sm font-medium text-slate-600">Light</span>
-              </div>
-              <div class="absolute inset-0 flex items-center justify-center transform transition-all duration-500 opacity-0 -translate-y-2 dark:opacity-100 dark:translate-y-0">
-                <Moon className="w-6 h-6 text-slate-300 transform transition-transform duration-500 group-hover:rotate-180" />
-                <span class="ml-2 text-sm font-medium text-slate-300">Dark</span>
-              </div>
+        <div class="flex flex-col h-full p-8">
+          <div class="mb-12">
+            <div class="w-20 h-20 rounded-full overflow-hidden mb-6 mx-auto">
+              <img
+                src="/michelle.png"
+                alt="Michelle Sentevski"
+                class="w-full h-full object-cover"
+              />
             </div>
+            <h1 class="text-lg font-medium text-slate-700 dark:text-slate-200 mb-2 text-center">Michelle Sentevski</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400 text-center leading-relaxed">
+              Mechanical engineer specializing in product design and development
+            </p>
           </div>
 
-          <div class="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-600 to-transparent opacity-50"></div>
-        </button>
+          <ul class="space-y-1 mb-8">
+            {navigation.map(({ name, href }) => (
+              <li>
+                <a
+                  href={href}
+                  data-nav-link
+                  class:list={[
+                    "block px-4 py-2 rounded-lg text-sm transition-colors nav-link",
+                    Astro.url.pathname === href
+                      ? "bg-slate-100 dark:bg-slate-700/50 text-navy-500 dark:text-white font-medium"
+                      : "text-slate-600 dark:text-slate-400 hover:bg-slate-100/70 dark:hover:bg-slate-700/30 hover:text-navy-500 dark:hover:text-white"
+                  ]}
+                >
+                  {name}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <div class="mt-auto flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <a
+                href="https://linkedin.com/in/your-profile"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-2 text-slate-600 dark:text-slate-400 hover:text-navy-500 dark:hover:text-white transition-colors"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                class="p-2 text-slate-600 dark:text-slate-400 hover:text-navy-500 dark:hover:text-white transition-colors"
+                aria-label="Email Me"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+            </div>
+            
+            <button
+              id="themeToggle"
+              class="p-2 text-slate-600 dark:text-slate-400 hover:text-navy-500 dark:hover:text-white transition-colors"
+              aria-label="Toggle theme"
+            >
+              <Sun className="w-4 h-4 dark:hidden" />
+              <Moon className="w-4 h-4 hidden dark:block" />
+            </button>
+          </div>
+        </div>
       </nav>
 
       <!-- Main Content -->
@@ -246,29 +272,34 @@ const navigation = [
       }
 
       window.localStorage.setItem('theme', theme);
+        const themeToggle = document.getElementById('themeToggle');
 
-      const handleToggleClick = () => {
-        const element = document.documentElement;
-        element.classList.toggle("dark");
-
-        const isDark = element.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      }
-
-      // Mobile Menu
-      const handleMenuClick = () => {
+      document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('menuButton');
         const sidebar = document.getElementById('sidebar');
-        const isHidden = sidebar.classList.contains('-translate-x-full');
-        
-        if (isHidden) {
-          sidebar.classList.remove('-translate-x-full');
-        } else {
-          sidebar.classList.add('-translate-x-full');
-        }
-      }
 
-      document.getElementById('themeToggle').addEventListener('click', handleToggleClick);
-      document.getElementById('menuButton').addEventListener('click', handleMenuClick);
+        if (themeToggle) {
+          themeToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            const element = document.documentElement;
+            element.classList.toggle("dark");
+            const isDark = element.classList.contains("dark");
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+            debugger;
+          });
+        }
+
+        if (menuButton) {
+          menuButton.addEventListener('click', () => {
+            const isHidden = sidebar.classList.contains('-translate-x-full');
+            if (isHidden) {
+              sidebar.classList.remove('-translate-x-full');
+            } else {
+              sidebar.classList.add('-translate-x-full');
+            }
+          });
+        }
+      });
     </script>
   </body>
 </html>
