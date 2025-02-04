@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors */
+    --navy-500: #1B3954;
+    --slate-600: #475569;
+    --dark-bg: #2C3D4F;
+    --dark-text: #E2E8F0;
+    --dark-text-muted: #94A3B8;
+  }
+
+  .dark {
+    --background: 215 29% 24%;  /* #2C3D4F */
+    --foreground: 210 40% 98%;
+    
+    --card: 215 29% 24%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 215 29% 24%;
+    --popover-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 212.7 26.8% 83.9;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* Typography */
+  .text-display {
+    font-family: 'Inter', sans-serif;
+    font-size: 64px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+  }
+
+  .text-h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: var(--navy-500);
+  }
+
+  .text-h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    color: var(--navy-500);
+  }
+
+  .text-h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: var(--navy-500);
+  }
+
+  .text-body {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .text-small {
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* Base elements */
+  h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    color: var(--navy-500);
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--slate-600);
+  }
+
+  a {
+    color: var(--navy-500);
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: #162F45;
+  }
+
+  pre {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #F8FAFC;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  code {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--slate-600);
+    margin-top: 0.5rem;
+  }
+
+  /* Prose styles */
+  .prose-custom {
+    max-width: none;
+  }
+
+  .prose-custom h1,
+  .prose-custom h2,
+  .prose-custom h3,
+  .prose-custom h4 {
+    font-family: 'Inter', sans-serif;
+    color: var(--navy-500);
+  }
+
+  .prose-custom p {
+    color: var(--slate-600);
+  }
+
+  .prose-custom a {
+    color: var(--navy-500);
+    text-decoration: none;
+  }
+
+  .prose-custom a:hover {
+    color: #162F45;
+  }
+
+  .prose-custom strong {
+    color: var(--navy-500);
+  }
+
+  .prose-custom code {
+    font-family: 'Inter', sans-serif;
+    color: var(--navy-500);
+  }
+
+  .prose-custom pre {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
