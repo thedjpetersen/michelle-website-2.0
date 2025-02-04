@@ -5,61 +5,124 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Briefcase } from 'lucide-react';
 ---
 
 <Layout title="Contact - Michelle Sentevski">
-  <div class="relative">
-    <!-- Subtle gradient background -->
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-50/50 to-slate-100/50 dark:from-[#2C3D4F]/80 dark:to-[#2C3D4F]/95" />
-    
-    <!-- Content -->
-    <div class="relative">
-      <header class="mb-12">
-        <h1 class="text-4xl font-semibold bg-gradient-to-r from-navy-500 to-navy-400 bg-clip-text text-transparent dark:from-slate-200 dark:to-slate-300 tracking-tight">
-          Contact Me
-        </h1>
-        <p class="mt-4 text-slate-600 dark:text-slate-300 max-w-2xl">
-          Let's discuss how I can help bring your product ideas to life.
-        </p>
-      </header>
+  <article>
+    <header class="relative pt-20 pb-16">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="space-y-8">
+          <div class="space-y-2">
+            <span class="text-sm font-medium text-indigo-600 dark:text-indigo-400">Contact</span>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-[1.1]">
+              Let's Create Something Amazing
+            </h1>
+          </div>
+          <div class="max-w-2xl">
+            <p class="text-base md:text-lg text-gray-600 dark:text-gray-300">
+              Ready to transform your product vision into reality? I'm here to help bring your ideas to life with precision engineering and innovative design.
+            </p>
+          </div>
+          <div class="flex justify-start space-x-6">
+            <span class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300">Available for Projects</span>
+            <span class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-full text-sm text-slate-600 dark:text-slate-300">Quick Response</span>
+          </div>
+        </div>
+      </div>
+    </header>
 
-      <Card className="relative overflow-hidden border-0 bg-white/70 dark:bg-[#2C3D4F]/70 backdrop-blur-xl p-8">
-        <div class="absolute inset-0 bg-gradient-to-r from-navy-500/5 to-transparent dark:from-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        
-        <form class="relative space-y-6">
-          <div class="space-y-2">
-            <Label htmlFor="name" className="text-slate-700 dark:text-slate-300">Name</Label>
-            <Input 
-              id="name" 
-              placeholder="Your name" 
-              className="bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50"
-            />
-          </div>
+    <section class="mb-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <Card className="relative overflow-hidden border border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl p-8 md:p-12">
+          <div class="absolute inset-0 bg-gradient-to-r from-navy-500/5 to-transparent dark:from-white/5" />
           
-          <div class="space-y-2">
-            <Label htmlFor="email" className="text-slate-700 dark:text-slate-300">Email</Label>
-            <Input 
-              id="email" 
-              type="email" 
-              placeholder="your.email@example.com" 
-              className="bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50"
-            />
+          <form class="relative space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-2">
+                <Label htmlFor="name" className="text-gray-700 dark:text-gray-300">Name</Label>
+                <Input 
+                  id="name" 
+                  placeholder="Your name" 
+                  className="bg-white/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700/50"
+                />
+              </div>
+              
+              <div class="space-y-2">
+                <Label htmlFor="email" className="text-gray-700 dark:text-gray-300">Email</Label>
+                <Input 
+                  id="email" 
+                  type="email" 
+                  placeholder="your.email@example.com" 
+                  className="bg-white/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700/50"
+                />
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <Label htmlFor="subject" className="text-gray-700 dark:text-gray-300">Subject</Label>
+              <Input 
+                id="subject" 
+                placeholder="What's your project about?" 
+                className="bg-white/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700/50"
+              />
+            </div>
+            
+            <div class="space-y-2">
+              <Label htmlFor="message" className="text-gray-700 dark:text-gray-300">Message</Label>
+              <Textarea 
+                id="message" 
+                placeholder="Tell me about your project goals, timeline, and any specific requirements..."
+                className="min-h-[200px] bg-white/50 dark:bg-gray-800/50 border-gray-200 dark:border-gray-700/50"
+              />
+            </div>
+            
+            <Button 
+              type="submit" 
+              className="w-full bg-gray-900 hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-gray-900 font-medium py-3 rounded-full transition-colors"
+            >
+              Send Message
+            </Button>
+          </form>
+        </Card>
+      </div>
+    </section>
+
+    <section class="mb-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="group p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 dark:bg-navy-400/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-navy-500 dark:text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-gray-900 dark:text-white mb-2">Email</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">michelle@sentevski.com</p>
           </div>
-          
-          <div class="space-y-2">
-            <Label htmlFor="message" className="text-slate-700 dark:text-slate-300">Message</Label>
-            <Textarea 
-              id="message" 
-              placeholder="Tell me about your project..."
-              className="min-h-[200px] bg-white/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700/50"
-            />
+
+          <div class="group p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 dark:bg-navy-400/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-navy-500 dark:text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-gray-900 dark:text-white mb-2">Location</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">San Francisco, CA</p>
           </div>
-          
-          <Button type="submit" className="w-full bg-navy-500 hover:bg-navy-600 text-white dark:bg-slate-700/50 dark:hover:bg-slate-700/70">
-            Send Message
-          </Button>
-        </form>
-      </Card>
-    </div>
-  </div>
+
+          <div class="group p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-navy-500/10 dark:bg-navy-400/10 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5 text-navy-500 dark:text-navy-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-medium text-gray-900 dark:text-white mb-2">Response Time</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Within 24 hours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
 </Layout>
