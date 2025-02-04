@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import projectManagement from '../../public/images/project-management.png';
+import productDesign from '../../public/images/product-design.png';
+import cadDesign from '../../public/images/cad.png';
+import vrDesign from '../../public/images/vr.png';
 ---
 
 <Layout title="Michelle Sentevski - Mechanical Product Design Engineer">
@@ -96,8 +101,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="w-full lg:w-[400px] h-48 lg:h-auto relative overflow-hidden">
-              <img 
-                src="/images/product-design.png" 
+              <Image 
+                src={productDesign}
                 alt="Mechanical Design" 
                 class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
@@ -126,8 +131,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="w-full lg:w-[400px] h-48 lg:h-auto relative overflow-hidden">
-              <img 
-                src="/images/cad.png" 
+              <Image 
+                src={cadDesign}
                 alt="CAD Design" 
                 class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
@@ -156,8 +161,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="w-full lg:w-[400px] h-48 lg:h-auto relative overflow-hidden">
-              <img 
-                src="/images/vr.png" 
+              <Image 
+                src={vrDesign}
                 alt="VR Design" 
                 class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
@@ -186,8 +191,8 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
             <div class="w-full lg:w-[400px] h-48 lg:h-auto relative overflow-hidden">
-              <img 
-                src="/images/project-management.png" 
+              <Image 
+                src={projectManagement}
                 alt="Project Management" 
                 class="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
               />
